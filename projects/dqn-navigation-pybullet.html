@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title i18n="dqn_title">DQN Navigation in PyBullet | Caesar Zhao</title>
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css" />
+    <link rel="stylesheet" href="../assets/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+
+  <body>
+    <div id="header-placeholder"></div>
+
+    <main class="main">
+      <!-- 项目名称 + 简介 -->
+      <section class="subpage-section">
+        <h1 class="subpage-title" i18n="portfolio6__title">Deep Q-Network Navigation in PyBullet</h1>
+        <h2 class="subpage-subtitle" i18n="dqn_overview_title">Project Overview</h2>
+        <p class="subpage-desc" i18n="dqn_overview_desc">
+          This project independently implements a Deep Q-Network (DQN) agent for autonomous navigation in a 2D PyBullet simulation. 
+          The agent learns goal-reaching behavior under uncertainty using value-based reinforcement learning with discrete motion 
+          commands, reward shaping, and exploration decay. The environment extends the <code>simple-car-env-template</code> and 
+          includes visual diagnostics for training evaluation. Developed as part of an advanced robotics module, this project 
+          demonstrates practical skills in learning-based control, simulation engineering, and agent diagnostics.
+        </p>
+      </section>
+
+      <!-- 结果展示 -->
+      <section class="subpage-section">
+        <h2 class="subpage-subtitle" i18n="dqn_demo_title">Demonstration</h2>
+        <p class="subpage-desc" i18n="dqn_demo_desc">
+          This section presents a visual walkthrough of the learning process and policy behavior, highlighting both theoretical underpinnings and practical results.
+        </p>
+
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="../assets/img/MDP.gif" alt="Markov Decision Process" class="subpage-img" />
+            <p i18n="dqn_demo_mdp">The Markov Decision Process (MDP) framework provides the foundation for value-based reinforcement learning methods like DQN.</p>
+          </div>
+          <div class="gallery-item">
+            <img src="../assets/img/evaluation_animation_gif.gif" alt="Policy Execution" class="subpage-img" />
+            <p i18n="dqn_demo_eval">Policy evaluation shows the agent navigating efficiently toward the goal while avoiding dynamic obstacles.</p>
+          </div>
+          <div class="gallery-item">
+            <img src="../assets/img/training_curve.png" alt="Training Reward Curve" />
+            <p i18n="dqn_demo_training">The reward curve demonstrates steady policy improvement over training episodes, validating the agent's learning progression.</p>
+          </div>
+          <div class="gallery-item">
+            <img src="../assets/img/epsilon_distribution.png" alt="Epsilon Decay" />
+            <p i18n="dqn_demo_epsilon">The ε-decay curve reflects the agent’s shift from exploratory to exploitative behavior as training proceeds.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 方法介绍 -->
+      <section class="subpage-section">
+        <h2 class="subpage-subtitle" i18n="dqn_methods_title">Methods</h2>
+        <ul class="subpage-list methods-list">
+          <li i18n="dqn_method_1">✓ Discrete DQN agent with 9 control actions and a multilayer perceptron (MLP) policy network</li>
+          <li i18n="dqn_method_2">✓ Simulation environment extended from <code>simple-car-env-template</code> with dynamic obstacle generation</li>
+          <li i18n="dqn_method_3">✓ Reward shaping based on goal proximity, collision penalties, and sparse terminal rewards</li>
+          <li i18n="dqn_method_4">✓ Epsilon-greedy exploration with exponential decay for efficient policy convergence</li>
+          <li i18n="dqn_method_5">✓ Evaluation based on success thresholds, cumulative rewards, and behavioral visualization</li>
+        </ul>        
+
+        <div class="subpage-button-wrapper" style="display: flex; flex-wrap: wrap; gap: 1rem;">
+          <a href="../assets/pdf/dqn_navigation_pybullet.pdf" class="button button--flex" target="_blank" i18n="dqn_view_report">
+            📄 View Report
+          </a>
+          <a href="https://github.com/caesar1457/RL_simple_car" class="button button--flex" target="_blank" i18n="dqn_view_code">
+            💻 View on GitHub
+          </a>
+        </div>
+
+        <div class="subpage-button-wrapper" style="margin-top: 1.5rem;">
+          <a href="../index.html#portfolio" class="button button--flex" i18n="dqn_back_to_portfolio">
+            &larr; Return to Portfolio
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- 脚本加载 -->
+    <script src="../assets/js/swiper-bundle.min.js"></script>
+    <script src="../assets/js/jquery2.1.4.min.js"></script>
+    <script src="../assets/js/jquery.i18n.min.js"></script>
+    <script src="../assets/js/cn-en-translate-module.js"></script>
+    <script src="../assets/js/iconfont.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+    <script>
+      function initMobileMenu() {
+        const navMenu = document.getElementById("nav-menu");
+        const navToggle = document.getElementById("nav-toggle");
+        const navClose = document.getElementById("nav-close");
+        if (navToggle) navToggle.addEventListener("click", () => navMenu.classList.add("show-menu"));
+        if (navClose) navClose.addEventListener("click", () => navMenu.classList.remove("show-menu"));
+      }
+
+      fetch("../header.html")
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("header-placeholder").innerHTML = data;
+          initMobileMenu();
+          initI18n();
+
+          const themeButton = document.getElementById("theme-button");
+          const darkTheme = "dark-theme", iconTheme = "uil-sun";
+          const selectedTheme = localStorage.getItem("selected-theme");
+          const selectedIcon = localStorage.getItem("selected-icon");
+
+          if (selectedTheme) {
+            document.body.classList[selectedTheme === "dark" ? "add" : "remove"](darkTheme);
+            themeButton.classList[selectedIcon === "uil-moon" ? "add" : "remove"](iconTheme);
+          }
+
+          themeButton.addEventListener("click", () => {
+            document.body.classList.toggle(darkTheme);
+            themeButton.classList.toggle(iconTheme);
+            localStorage.setItem("selected-theme", document.body.classList.contains(darkTheme) ? "dark" : "light");
+            localStorage.setItem("selected-icon", themeButton.classList.contains(iconTheme) ? "uil-moon" : "uil-sun");
+          });
+        });
+
+      fetch("../footer.html")
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        });
+    </script>
+  </body>
+</html>
