@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title i18n="pointcloud_title">3D Point Cloud Perception and Surface Modeling | Caesar Zhao</title>
+
+    <!-- 样式引用 -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css" />
+    <link rel="stylesheet" href="../assets/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+
+  <body>
+    <div id="header-placeholder"></div>
+
+    <main class="main">
+      <!-- 项目名称 + 简介 -->
+      <section class="subpage-section">
+        <h1 class="subpage-title" i18n="pointcloud__title">3D Point Cloud Perception and Surface Modeling</h1>
+        <h2 class="subpage-subtitle" i18n="pointcloud_overview">Overview</h2>
+        <p class="subpage-desc" i18n="pointcloud_overview_desc">
+          This project independently develops a comprehensive pipeline for semantic classification and terrain reconstruction of 3D point cloud data. 
+          It integrates unsupervised clustering (K-Means), dimensionality reduction (PCA), supervised learning (SVM), and regression modeling 
+          (Linear Regression and Gaussian Process Regression) with uncertainty estimation. This solution enables accurate environmental perception 
+          essential for robotics, autonomous navigation, and intelligent mapping applications.
+        </p>
+      </section>
+
+      <!-- 结果展示 -->
+      <section class="subpage-section">
+        <h2 class="subpage-subtitle" i18n="pointcloud_demo">Demonstration</h2>
+        <p class="subpage-desc" i18n="pointcloud_demo_desc">
+          The following visualizations illustrate each critical stage of the implemented pipeline, from initial segmentation and feature extraction to high-accuracy classification and reliable surface modeling.
+        </p>
+
+        <!-- 分类 -->
+        <h3 class="subpage-subtitle" i18n="pointcloud_classification">Point Cloud Classification</h3>
+        <p class="subpage-desc" i18n="pointcloud_classification_desc">
+          This stage focuses on robust semantic classification through a combination of unsupervised clustering, dimensionality reduction, and supervised machine learning methods.
+        </p>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="../assets/img/classification/K-means.png" alt="K-Means Clustering" />
+            <p i18n="pointcloud_kmeans">K-Means clustering effectively segments the raw 3D data based on spatial coordinates and RGB color values, enabling accurate region separation without prior labeling.</p>
+          </div>
+          <div class="gallery-item">
+            <img src="../assets/img/classification/PCA.png" alt="PCA Result" />
+            <p i18n="pointcloud_pca">Principal Component Analysis (PCA) identifies dominant geometric directions within clusters, significantly enhancing the clarity and efficiency of subsequent feature extraction.</p>
+          </div>
+          <div class="gallery-item">
+            <img src="../assets/img/classification/SVM_train.png" alt="SVM Training" />
+            <p i18n="pointcloud_svm_train">An optimized Support Vector Machine (SVM) classifier achieves exceptional accuracy, demonstrating perfect (AUC = 1.0) classification performance on the training dataset.</p>
+          </div>
+          <div class="gallery-item">
+            <img src="../assets/img/classification/SVM_test.png" alt="SVM Test" />
+            <p i18n="pointcloud_svm_test">The classifier maintains outstanding generalization performance with an AUC of 0.999 on unseen test data, confirming robustness and reliability.</p>
+          </div>
+        </div>
+
+        <!-- 表面建模 -->
+        <h3 class="subpage-subtitle" style="margin-top:2rem;" i18n="pointcloud_modeling">Surface Modeling</h3>
+        <p class="subpage-desc" i18n="pointcloud_modeling_desc">
+          Here, continuous surface reconstruction and uncertainty quantification are performed to ensure precise and reliable terrain modeling.
+        </p>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="../assets/img/modeling/Ground Truth + GP Prediction + Uncertainty (3-in-1).png" alt="GPR Prediction" />
+            <p i18n="pointcloud_gpr">Gaussian Process Regression (GPR) provides smooth and accurate terrain predictions, accompanied by uncertainty estimates (confidence intervals), essential for decision-making under uncertainty.</p>
+          </div>
+          <div class="gallery-item">
+            <img src="../assets/img/modeling/Uncertainty vs Absolute Error (GPR).png" alt="Uncertainty Analysis" />
+            <p i18n="pointcloud_uncertainty">Analysis reveals a strong correlation between predicted uncertainties and actual errors, validating the effectiveness and reliability of the GPR model calibration.</p>
+          </div>
+          <div class="gallery-item">
+            <img src="../assets/img/modeling/Linear Regression R² per Cluster.png" alt="R2 Linear Fit" />
+            <p i18n="pointcloud_linear_r2">Linear regression shows high R² scores particularly in structurally simpler regions (walls and floors), highlighting the model's suitability for planar surface reconstruction.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 方法介绍 -->
+      <section class="subpage-section">
+        <h2 class="subpage-subtitle" i18n="pointcloud_methods">Methods</h2>
+        <ul class="subpage-list methods-list">
+          <li i18n="pointcloud_method1">✓ Unsupervised spatial-color segmentation using K-Means clustering.</li>
+          <li i18n="pointcloud_method2">✓ Dimensionality reduction via PCA for effective feature extraction.</li>
+          <li i18n="pointcloud_method3">✓ Robust supervised classification using SVM with extensive evaluation metrics (ROC-AUC, F1, Confusion Matrix).</li>
+          <li i18n="pointcloud_method4">✓ Surface reconstruction with segmented Linear Regression models.</li>
+          <li i18n="pointcloud_method5">✓ Probabilistic terrain modeling via Gaussian Process Regression including uncertainty quantification.</li>
+          <li i18n="pointcloud_method6">✓ Hyperparameter optimization of GPR models using Maximum Likelihood Estimation (MLE).</li>
+        </ul>
+
+        <div class="subpage-button-wrapper" style="display: flex; flex-wrap: wrap; gap: 1rem;">
+          <a href="../assets/pdf/pointcloud_classification_ml.pdf" class="button button--flex" target="_blank" i18n="pointcloud_view_classification">
+            📄 View Classification Report
+          </a>
+          <a href="../assets/pdf/surface_modeling_gpr_lr.pdf" class="button button--flex" target="_blank" i18n="pointcloud_view_modeling">
+            📄 View Surface Modeling Report
+          </a>
+          <a href="https://github.com/caesar1457/3D-Point-Cloud-Perception-and-Surface-Modeling" class="button button--flex" target="_blank" i18n="pointcloud_view_code">
+            💻 View Code on GitHub
+          </a>
+        </div>
+
+        <div class="subpage-button-wrapper" style="margin-top: 1.5rem;">
+          <a href="../index.html#portfolio" class="button button--flex" i18n="pointcloud_back">
+            &larr; Return to Portfolio
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- 脚本加载 -->
+    <script src="../assets/js/swiper-bundle.min.js"></script>
+    <script src="../assets/js/jquery2.1.4.min.js"></script>
+    <script src="../assets/js/jquery.i18n.min.js"></script>
+    <script src="../assets/js/cn-en-translate-module.js"></script>
+    <script src="../assets/js/iconfont.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+    <script>
+      function initMobileMenu() {
+        const navMenu = document.getElementById("nav-menu");
+        const navToggle = document.getElementById("nav-toggle");
+        const navClose = document.getElementById("nav-close");
+        if (navToggle) navToggle.addEventListener("click", () => navMenu.classList.add("show-menu"));
+        if (navClose) navClose.addEventListener("click", () => navMenu.classList.remove("show-menu"));
+      }
+
+      fetch("../header.html")
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("header-placeholder").innerHTML = data;
+          initMobileMenu();
+          initI18n();
+
+          const themeButton = document.getElementById("theme-button");
+          const darkTheme = "dark-theme",
+            iconTheme = "uil-sun";
+          const selectedTheme = localStorage.getItem("selected-theme");
+          const selectedIcon = localStorage.getItem("selected-icon");
+
+          if (selectedTheme) {
+            document.body.classList[selectedTheme === "dark" ? "add" : "remove"](darkTheme);
+            themeButton.classList[selectedIcon === "uil-moon" ? "add" : "remove"](iconTheme);
+          }
+
+          themeButton.addEventListener("click", () => {
+            document.body.classList.toggle(darkTheme);
+            themeButton.classList.toggle(iconTheme);
+            localStorage.setItem("selected-theme", document.body.classList.contains(darkTheme) ? "dark" : "light");
+            localStorage.setItem("selected-icon", themeButton.classList.contains(iconTheme) ? "uil-moon" : "uil-sun");
+          });
+        });
+
+      fetch("../footer.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        });
+    </script>
+  </body>
+</html>

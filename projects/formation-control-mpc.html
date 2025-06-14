@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leader-Follower Formation Control with MPC | Caesar Zhao</title>
+
+    <!-- 样式引用 -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css" />
+    <link rel="stylesheet" href="../assets/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+
+  <body>
+    <!-- Header 自动加载 -->
+    <div id="header-placeholder"></div>
+
+    <!-- ✅ 项目内容区块 -->
+    <main class="main">
+
+    <!-- 📛 项目名称 + 简介 -->
+    <section class="subpage-section">
+      <h1 class="subpage-title" i18n="mpc_title">Leader-Follower Formation Control with MPC</h1>
+      <h2 class="subpage-subtitle" i18n="mpc_goalTitle">Project Overview</h2>
+      <p class="subpage-desc" i18n="mpc_goalDesc">
+        This project implements a centralized leader-follower formation control system using Model Predictive Control (MPC) in MATLAB...
+      </p>
+    </section>
+
+    <!-- 📈 结果展示 -->
+    <section class="subpage-section">
+      <h2 class="subpage-subtitle" i18n="mpc_demoTitle">Demonstration</h2>
+      <p class="subpage-desc" i18n="mpc_demoDesc">
+        The video below demonstrates how follower robots maintain coordinated formation using MPC...
+      </p>
+
+      <video controls class="subpage-video">
+        <source src="../assets/video/MPC.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      <!-- 🖼️ 图像说明段落 -->
+      <p class="subpage-desc" i18n="mpc_imageDesc">
+        The figures below show the complete motion trajectories of the robot team after executing formation control...
+      </p>
+
+      <div class="subpage-img-row">
+        <img src="../assets/img/final_2.png" alt="Formation Snapshot 1" class="subpage-img" />
+        <img src="../assets/img/final_1.png" alt="Formation Snapshot 2" class="subpage-img" />
+      </div>
+    </section>
+
+    <!-- 🛠 方法 -->
+    <section class="subpage-section">
+      <h2 class="subpage-subtitle" i18n="mpc_methodsTitle">Core Techniques</h2>
+      <ul class="subpage-list methods-list">
+        <li i18n="mpc_method1">✓ Designed a centralized MPC framework for real-time formation control</li>
+        <li i18n="mpc_method2">✓ Encoded formation geometry and tracking objectives into the cost function</li>
+        <li i18n="mpc_method3">✓ Integrated collision avoidance using inter-agent and obstacle constraints</li>
+        <li i18n="mpc_method4">✓ Verified system stability through simulation in MATLAB under complex scenarios</li>
+      </ul>
+      <div class="subpage-button-wrapper">
+        <a href="https://github.com/caesar1457/Formation-Control-with-MPC" class="button button--flex" target="_blank" i18n="mpc_githubLink">
+          💻 View on GitHub
+        </a>
+        <a href="../index.html#portfolio" class="button button--flex" i18n="mpc_back">⬅ Back to Portfolio</a>
+      </div>
+    </section>
+
+      
+      
+
+    </main>
+
+    <!-- Footer 自动加载 -->
+    <div id="footer-placeholder"></div>
+
+    <!-- ✅ 脚本功能加载 -->
+    <script src="../assets/js/swiper-bundle.min.js"></script>
+    <script src="../assets/js/jquery2.1.4.min.js"></script>
+    <script src="../assets/js/jquery.i18n.min.js"></script>
+    <script src="../assets/js/cn-en-translate-module.js"></script>
+    <script src="../assets/js/iconfont.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+    <!-- ✅ 动态加载 Header + Footer + 明暗/翻译 -->
+    <script>
+      function initMobileMenu() {
+        const navMenu = document.getElementById("nav-menu");
+        const navToggle = document.getElementById("nav-toggle");
+        const navClose = document.getElementById("nav-close");
+        if (navToggle) navToggle.addEventListener("click", () => navMenu.classList.add("show-menu"));
+        if (navClose) navClose.addEventListener("click", () => navMenu.classList.remove("show-menu"));
+      }
+
+      fetch("../header.html")
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("header-placeholder").innerHTML = data;
+          initMobileMenu();
+          initI18n();
+
+          const themeButton = document.getElementById("theme-button");
+          const darkTheme = "dark-theme", iconTheme = "uil-sun";
+          const selectedTheme = localStorage.getItem("selected-theme");
+          const selectedIcon = localStorage.getItem("selected-icon");
+
+          if (selectedTheme) {
+            document.body.classList[selectedTheme === "dark" ? "add" : "remove"](darkTheme);
+            themeButton.classList[selectedIcon === "uil-moon" ? "add" : "remove"](iconTheme);
+          }
+
+          themeButton.addEventListener("click", () => {
+            document.body.classList.toggle(darkTheme);
+            themeButton.classList.toggle(iconTheme);
+            localStorage.setItem("selected-theme", document.body.classList.contains(darkTheme) ? "dark" : "light");
+            localStorage.setItem("selected-icon", themeButton.classList.contains(iconTheme) ? "uil-moon" : "uil-sun");
+          });
+        });
+
+      fetch("../footer.html")
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        });
+    </script>
+  </body>
+</html>
