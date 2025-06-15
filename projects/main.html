@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <div id="header-placeholder"></div>
+    <!-- <div id="header-placeholder"></div> -->
 
     <main class="main">
       <!-- Project Title + Introduction -->
@@ -35,31 +35,14 @@
           </div>
            <div class="gallery-item">
             <img src="../assets/img/F.png" alt="Group jump demonstration" class="subpage-img" />
-            <p>Quoc Binh NGUYEN as a cat (@_@)</p>
+            <p>Quoc Binh NGUYEN — in cat form</p>
           </div>
         </div>
 
         </div>
       </section>
-
-       <section class="subpage-section">
-        <h2 class="subpage-subtitle" i18n="g1jump_demo_title">Demonstration</h2>
-        <p class="subpage-desc" i18n="g1jump_demo_desc">
-          The following videos show the single-leg jumping motion and group performance of G1 humanoid robots after training.
-        </p>
+      </section>
     
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <video class="subpage-video" controls autoplay muted loop>
-              <source src="../assets/video/G1_4_training.webm" type="video/webm">
-              Your browser does not support the video tag.
-            </video>
-            <p i18n="g1jump_demo_group">Group demonstration after 25,700 steps of training.</p>
-          </div>
-
-        </div>
-      </section>
-      <!-- 结果展示 -->
       <section class="subpage-section">
         <h2 class="subpage-subtitle" i18n="g1jump_demo_title">Demonstration</h2>
         <p class="subpage-desc" i18n="g1jump_demo_desc">
@@ -81,20 +64,7 @@
             </video>
             <p i18n="g1jump_demo_single">Single-leg jumping motion demonstration.</p>
           </div>
-          <div class="gallery-item">
-            <video class="subpage-video" controls autoplay muted loop>
-              <source src="../assets/video/G1_4_training.webm" type="video/webm">
-              Your browser does not support the video tag.
-            </video>
-            <p i18n="g1jump_demo_group">Group demonstration after 25,700 steps of training.</p>
-          </div>
-          <div class="gallery-item">
-            <video class="subpage-video" controls autoplay muted loop>
-              <source src="../assets/video/G1_4_training.webm" type="video/webm">
-              Your browser does not support the video tag.
-            </video>
-            <p i18n="g1jump_demo_group">Group demonstration after 25,700 steps of training.</p>
-          </div>
+       
         </div>
       </section>
     
@@ -108,11 +78,18 @@
         <div class="gallery-grid">
           <div class="gallery-item">
             <img src="../assets/img/average_episode_length.png" alt="Average Episode Length" class="subpage-img" />
-            <p i18n="g1jump_data_episode_length">Average episode length during training, showing motion stabilization.</p>
+            <p>Average episode length during training, showing motion stabilization.</p>
+            <p>Early stage: short episodes due to balance loss or failure</p>
+            <p>Later stage: longer episodes as jumping behavior stabilizes</p>
+  
           </div>
           <div class="gallery-item">
             <img src="../assets/img/LossEntropy.png" alt="Policy Entropy Loss" class="subpage-img" />
-            <p i18n="g1jump_data_entropy">Entropy loss decreasing, indicating policy convergence.</p>
+            <p>Entropy loss decreasing, indicating policy convergence.</p>
+              <p>Indicates reduction in exploration and policy stabilisation</p>
+              <p>Early stage: high randomness, frequent exploration</p>
+              <p>Later stage: low randomness, stable single-leg jump behaviour </p>
+
           </div>
           <div class="gallery-item">
             <img src="../assets/img/lower_body_diff_norm.png" alt="Lower Body Error" class="subpage-img" />
@@ -163,7 +140,7 @@
     </main>
     
 
-    <div id="footer-placeholder"></div>
+    <!-- <div id="footer-placeholder"></div> -->
 
     <!-- 脚本加载 -->
     <script src="../assets/js/swiper-bundle.min.js"></script>
